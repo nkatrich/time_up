@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import Button from './components/Menu.jsx'
 
 function App() {
   const [time, setTime] = useState(10)
@@ -20,9 +21,10 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Countdown: {time}</h1>
-      <button onClick={start} disabled={isRunning || time === 0}>Start</button>
+      <h1 className='counter'>Countdown: {time}</h1>
+      <button onClick={start} disabled={isRunning}>Start</button>
       <button onClick={reset}>Reset</button>
+      <Button />
     </div>
   )
 }
