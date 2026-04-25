@@ -24,14 +24,39 @@ h2 {
   font-size: clamp(20px, 3.5vw, 64px);
   font-weight: bold;
   padding: 20px;
-  background-color: transparent;
-  border: 8px solid rgb(57, 0, 227);
   width: 140px;
   height: 140px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 5;
+}
+
+.timer::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 15px);
+  height: calc(100% + 15px);
+  background: linear-gradient(135deg, rgb(57, 0, 227), rgb(193, 0, 227));
+  z-index: -1;
+  border-radius: 50%;
+}
+
+.timer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(57, 0, 227);
+  
+  z-index: -1;
+  border-radius: 50%;
 }
 
 .timer.pulse-trigger {
@@ -40,6 +65,7 @@ h2 {
 
 @keyframes pulse {
   0%, 100% {
+
     transform: scale(1);
   }
   50% {

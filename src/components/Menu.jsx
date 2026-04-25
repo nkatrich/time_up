@@ -60,7 +60,7 @@ const StyledWrapper = styled.div`
     overflow: hidden;
   }
 
-  .button-menu:hover {
+  .button-container button:hover {
     transform: scale(1.1);
   }`;
 

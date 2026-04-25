@@ -7,7 +7,6 @@ function TimerPage() {
     const interval = useRef(null);
     const startTimeRef = useRef(null);
     const elapsedRef = useRef(0);
-    const timerRef = useRef(null);
 
     useEffect(() => {
         setAnimate(true);
@@ -43,7 +42,6 @@ function TimerPage() {
             <div className="block-of-timer">
                 <h2 className="timer-title">Timer</h2>
                 <span 
-                    ref={timerRef}
                     className={`timer ${animate ? 'pulse-trigger' : ''}`}
                 >
                     {seconds}
