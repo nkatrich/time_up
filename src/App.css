@@ -1,4 +1,24 @@
 body {
   background-color: rgb(12, 0, 55);
+  color: rgb(232, 232, 232);
+}
+
+.countdown-sect, .timer-sect {
+  width: 100%;
+}
+
+.block-of-timer {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.timer-title {
   
+}
+
+.timer {
+
 }
