@@ -3,9 +3,17 @@ import { useRef, useState, useEffect } from "react"
 function TimerPage() {
     const [seconds, setSeconds] = useState(0);
     const [isRunning, setIsRunning] = useState(false); // write logic stop start
+    const [animate, setAnimate] = useState(false);
     const interval = useRef(null);
     const startTimeRef = useRef(null);
     const elapsedRef = useRef(0);
+    const timerRef = useRef(null);
+
+    useEffect(() => {
+        setAnimate(true);
+        const timeout = setTimeout(() => setAnimate(false), 400);
+        return () => clearTimeout(timeout);
+    }, [seconds]);
 
     function callTimer() {
         if (!isRunning) {
@@ -34,7 +42,12 @@ function TimerPage() {
         <section className="timer-sect">
             <div className="block-of-timer">
                 <h2 className="timer-title">Timer</h2>
-                <span className="timer">{seconds}</span>
+                <span 
+                    ref={timerRef}
+                    className={`timer ${animate ? 'pulse-trigger' : ''}`}
+                >
+                    {seconds}
+                </span>
                 <div className="wrapper-btns">
                     <button className="timer-act" onClick={callTimer}>{!isRunning ? "Start" : "Stop"}</button>
                     <button className="timer-act" onClick={reset}>Reset</button>
