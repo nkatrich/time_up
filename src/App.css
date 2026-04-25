@@ -13,12 +13,38 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  gap: 30px;
 }
 
-.timer-title {
-  
+h2 {
+  font-size: clamp(20px, 2.5vw, 44px);
 }
 
 .timer {
+  font-size: clamp(20px, 3.5vw, 64px);
+  font-weight: bold;
+  padding: 20px;
+  background-color: transparent;
+  border: 8px solid rgb(57, 0, 227);
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.wrapper-btns {
+  display: flex;
+  gap: 15px;
+}
+
+.timer-act {
+  font-size: clamp(18px, 2vw, 36px);
+  background-color: rgb(57, 0, 227);
+  color: rgb(232, 232, 232);
+  font-weight: bold;
+  border-radius: 15px;
+  padding: 15px 50px;
+  cursor: pointer;
 }
