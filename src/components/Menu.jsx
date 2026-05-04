@@ -3,29 +3,31 @@ import styled from 'styled-components';
 import countdownIcon from '../assets/icons/countdown.svg';
 import timerIcon from '../assets/icons/timer.svg';
 
-const Button = () => {
-    const [countdown, setCountdown] = useState(true)
-    const [timer, setTimer] = useState(false)
+const Menu = ({ onPageChange }) => {
+    const [countdown, setCountdown] = useState(false);
+    const [timer, setTimer] = useState(true);
 
   function callCountdown() {
-    setCountdown(true)
-    setTimer(false)
+    setCountdown(true);
+    setTimer(false);
+    onPageChange('countdown');
   }
 
   function callTimer() {
-    setCountdown(false)
-    setTimer(true)
+    setCountdown(false);
+    setTimer(true);
+    onPageChange('timer');
   }
 
   const handleClick = (event) => {
-    const button = event.target.closest('button')
-    if (!button) return
+    const button = event.target.closest('button');
+    if (!button) return;
 
-    const action = button.dataset.action
+    const action = button.dataset.action;
     if (action === 'countdown') {
-      callCountdown()
+      callCountdown();
     } else if (action === 'timer') {
-      callTimer()
+      callTimer();
     }
   }
 
@@ -100,4 +102,4 @@ const StyledWrapper = styled.div`
     cursor: "pointer"
   }
 
-export default Button;
+export default Menu;
